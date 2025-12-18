@@ -1,0 +1,25 @@
+name: Lab09 Python - Run Tests
+
+on: 
+    push:
+        branches:
+            - main
+  
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/satia2/lab09:python
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run pytest
+        run: |
+            pytest -q
