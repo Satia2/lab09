@@ -3,7 +3,7 @@ name: Lab09 Python - Run Tests
 on: 
     push:
         branches:
-            - main
+            - master
   
 
 permissions:
